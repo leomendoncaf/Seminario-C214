@@ -23,7 +23,7 @@ mocha.run((failures) => {
   const reporter = new mochawesome(runner, reportOptions);
   reporter.run(failures, () => {
     // Leitura do arquivo de relatório gerado
-    const reportFilePath = path.resolve(__dirname, 'reports', 'report.json');
+    const reportFilePath = path.resolve(__dirname, 'reports', 'mochawesome-report', 'report.json'); // Correção do caminho do arquivo de relatório
     fs.readFile(reportFilePath, 'utf8', (err, data) => {
       if (err) {
         console.error('Erro ao ler o arquivo de relatório:', err);
