@@ -5,7 +5,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "coverage:report": "react-scripts test --coverage",
-    "package": "webpack"
+    "package": "webpack",
+    "report": "node generate-report.js"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
