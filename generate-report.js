@@ -12,8 +12,9 @@ mocha.addFile(path.resolve(__dirname, '../Seminario-C214/src/components/TestStac
 // Execute os testes
 mocha.run((failures) => {
   // Crie um objeto de relatório mochawesome com os resultados dos testes
+  const reportDir = path.resolve(__dirname, 'reports');
   const reportOptions = {
-    reportDir: path.resolve(__dirname, 'reports'),
+    reportDir: reportDir,
     reportFilename: 'report',
     reportTitle: 'Relatório de Testes',
     inlineAssets: true
@@ -23,7 +24,7 @@ mocha.run((failures) => {
   const reporter = new mochawesome(runner, reportOptions);
   reporter.run(failures, () => {
     // Leitura do arquivo de relatório gerado
-    const reportFilePath = path.resolve(__dirname, 'reports', 'mochawesome-report', 'report.json'); // Correção do caminho do arquivo de relatório
+    const reportFilePath = path.join(reportDir, 'report.json');
     fs.readFile(reportFilePath, 'utf8', (err, data) => {
       if (err) {
         console.error('Erro ao ler o arquivo de relatório:', err);
@@ -31,7 +32,7 @@ mocha.run((failures) => {
       }
 
       // Salve o conteúdo do relatório em um arquivo de texto
-      const outputFilePath = path.resolve(__dirname, 'reports', 'report.txt');
+      const outputFilePath = path.join(reportDir, 'report.txt');
       fs.writeFile(outputFilePath, data, (err) => {
         if (err) {
           console.error('Erro ao salvar o relatório em um arquivo de texto:', err);
