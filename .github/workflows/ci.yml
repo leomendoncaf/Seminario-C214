@@ -34,3 +34,9 @@ jobs:
 
       - name: Package application
         run: npm run package
+        
+      - name: Build application
+        run: npm run build
+
+      - name: Package application
+        run: npm run package
