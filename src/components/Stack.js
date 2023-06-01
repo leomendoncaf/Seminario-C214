@@ -1,20 +1,31 @@
 class Stack {
-    constructor() {
-      this.items = [];
-    }
-  
-    push(item) {
-      this.items.push(item);
-    }
-  
-    pop() {
-      return this.items.pop();
-    }
-  
-    size() {
-      return this.items.length;
-    }
+  constructor() {
+    this.stack = [];
   }
-  
-  export default Stack;
-  
+
+  push(item) {
+    this.stack.push(item);
+  }
+
+  pop() {
+    return this.stack.pop();
+  }
+
+  peek() {
+    return this.stack[this.stack.length - 1];
+  }
+
+  size() {
+    return this.stack.length;
+  }
+
+  isEmpty() {
+    return this.stack.length === 0;
+  }
+
+  clear() {
+    this.stack = [];
+  }
+}
+
+export default Stack;
