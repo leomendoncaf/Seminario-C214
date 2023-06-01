@@ -7,7 +7,7 @@ const mochawesome = require('mochawesome');
 const mocha = new Mocha();
 
 // Adicione os arquivos de teste que você deseja executar
-mocha.addFile(path.resolve(__dirname, '/src/components/TestStack.js'));
+mocha.addFile(path.resolve(__dirname, '../Seminario-C214/src/components/TestStack.test.js'));
 
 // Execute os testes
 mocha.run((failures) => {

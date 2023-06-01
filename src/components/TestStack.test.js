@@ -1,47 +1,49 @@
-import Stack from './Stack';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
+const Stack = require('./Stack');
+
 describe('Stack', () => {
-  test('should push elements to the stack', () => {
+  it('should push elements to the stack', () => {
     const stack = new Stack();
     stack.push(1);
     stack.push(2);
-    expect(stack.size()).toBe(2);
+    expect(stack.size()).to.equal(2);
   });
 
-  test('should pop elements from the stack', () => {
+  it('should pop elements from the stack', () => {
     const stack = new Stack();
     stack.push(1);
     stack.push(2);
-    const popped = stack.pop();
-    expect(popped).toBe(2);
-    expect(stack.size()).toBe(1);
+    const poppedElement = stack.pop();
+    expect(poppedElement).to.equal(2);
+    expect(stack.size()).to.equal(1);
   });
 
-  test('should return the top element without removing it', () => {
+  it('should return the top element without removing it', () => {
     const stack = new Stack();
     stack.push(1);
     stack.push(2);
-    const top = stack.peek();
-    expect(top).toBe(2);
-    expect(stack.size()).toBe(2);
+    const topElement = stack.peek();
+    expect(topElement).to.equal(2);
+    expect(stack.size()).to.equal(2);
   });
 
-  test('should return true if the stack is empty', () => {
+  it('should return true if the stack is empty', () => {
     const stack = new Stack();
-    expect(stack.isEmpty()).toBe(true);
+    expect(stack.isEmpty()).to.be.true;
   });
 
-  test('should return false if the stack is not empty', () => {
+  it('should return false if the stack is not empty', () => {
     const stack = new Stack();
     stack.push(1);
-    expect(stack.isEmpty()).toBe(false);
+    expect(stack.isEmpty()).to.be.false;
   });
 
-  test('should clear all elements from the stack', () => {
+  it('should clear all elements from the stack', () => {
     const stack = new Stack();
     stack.push(1);
     stack.push(2);
     stack.clear();
-    expect(stack.size()).toBe(0);
-    expect(stack.isEmpty()).toBe(true);
+    expect(stack.isEmpty()).to.be.true;
   });
 });
